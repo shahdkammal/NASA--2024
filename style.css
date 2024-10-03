@@ -1,0 +1,270 @@
+/* styles.css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgb(228, 228, 243);
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    left: 0; /* Align it to the left */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+nav img {
+    height: 80px; /* Adjust this value to make the logo bigger */
+    width: auto;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items {
+    display: flex;
+    gap: 15px;
+    
+}
+
+.nav-items a {
+    color: navy;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    font-weight: 400;
+}
+
+.nav-items a:hover {
+    background-color: rgb(236, 236, 161); /* Change background on hover */
+}
+
+
+#home {
+    background-image: linear-gradient(rgba(9,5,54,0.3),rgba(5,4,46,0.7)),url("January_life_style_working_96.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+#home h2{
+    color: white;
+    font-size: 2.2rem;
+    letter-spacing:1px ;
+    
+}
+#home p{
+    width: 50%;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 25px ;
+}
+#home .button{
+    margin-top: 30px;
+}
+#home a{
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding:13px 35px ;
+    background-color: white;
+    font-weight: 600;
+    border-radius: 5px;
+}
+#home a.game{
+    color: white;
+    background: blue;
+}
+#home a.game:hover{
+    color: blue;
+    background: white;
+}
+#home a.courses{
+    color: white;
+    background: rgb(218, 218, 7);
+}
+#home a.courses:hover{
+    color: rgb(218, 218, 7);
+    background: white;
+}
+#about{
+    width: 100%;
+    padding: 78px 0px;
+    background-color:rgb(228, 228, 243);
+}
+#about img{
+width: 420px;
+height: auto;
+}
+.about-text{
+    width: 550px;
+   
+}
+
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.about-text h1{
+    color:navy;
+    font-size: 53px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.about-text h4{
+    color:navy;
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    
+}
+.about-text p{
+    color:navy;
+   
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+
+}
+.contact {
+    width: 100%;
+    padding: 40px 0; /* Reduced padding for shorter height */
+    background-color: rgb(56, 56, 122);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+}
+
+.contact h3 {
+    color: white;
+    font-size: 50px;
+    text-transform: capitalize;
+    margin-bottom: 20px; /* Space below the heading */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center the profile cards */
+    padding: 20px; /* Space around the cards */
+}
+
+.profile-card {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 50%;
+    box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
+    transition: all .4s;
+    margin: 20px; /* Consistent spacing between cards */
+}
+
+
+.profile-card:hover {
+    border-radius: 10px;
+    height: 260px; /* Slight increase in height on hover */
+}
+
+.profile-card .img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-card:hover img {
+    border-radius: 10px;
+    transform: translateY(-70px);
+}
+
+.profile-card a {
+    color: #333;
+    text-align: center;
+}
+
+.img img {
+    object-fit: cover; /* Cover instead of fill to avoid distortion */
+    width: 100%;
+    border-radius: 50%;
+    transition: all .4s;
+    z-index: 99;
+}
+
+.caption {
+    text-align: center;
+    transform: translateY(-90px);
+    opacity: 0; /* Initially hidden */
+    pointer-events: none;
+    transition: all .5s;
+}
+
+.profile-card:hover .caption {
+    opacity: 1; /* Show caption on hover */
+    pointer-events: all; /* Enable interaction */
+}
+
+.caption h3 {
+    font-size: 18px;
+    color: #0c52a1;
+    font-weight: 600;
+}
+.caption p {
+font-size: 12.6px;
+font-weight: 500;
+margin: -10px 0 12px; 
+color: black;
+}
+.caption .social-links {
+    margin-top: -10px; 
+}
+
+
+.caption .social-links a {
+ font-size: 14.7px;
+    margin: -10px 5px 0; 
+    cursor: pointer;
+    color: #333;
+    transition: all .4s
+}
+
+.caption .social-links i:hover {
+    color: #0c52a1;
+}
+
+footer {
+    background-color: rgb(11, 11, 64);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
