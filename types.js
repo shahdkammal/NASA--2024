@@ -1,19 +1,43 @@
-var swiper = new Swiper(".swiper-background-thumbs", {
-    loop: true,
-    spaceBetween: 0,
-    slidesPerView: 0,
-    
-  });
-  var swiper2 = new Swiper(".swiper-background", {
-    loop: true,
-    spaceBetween: 0,
-    
-    thumbs: {
-      swiper: swiper,
+const swiper = new Swiper(".swiper-slider", {
+  // Optional parameters
+  centeredSlides: true,
+  slidesPerView: 1,
+  grabCursor: true,
+  freeMode: false,
+  loop: true,
+  mousewheel: false,
+  keyboard: {
+    enabled: true
+  },
+
+  // Enabled autoplay mode
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: false,
+    clickable: true
+  },
+
+  // If we need navigation
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+
+  // Responsive breakpoints
+  breakpoints: {
+    640: {
+      slidesPerView: 1.25,
+      spaceBetween: 20
     },
-  });
-  // navigation bar effects on scroll
-  window.addEventListener("scroll", function(){
-      const header=document.querySelector("header");
-      header.classList.toggle("sticky",window.scrollY > 0);
-  });
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    }
+  }
+});

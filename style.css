@@ -1,270 +1,413 @@
-/* styles.css */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color:white;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+/* Default Navbar for larger screens (including laptops) */
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: rgb(228, 228, 243);
-    position: fixed; /* Make the navbar fixed */
-    top: 0; /* Stick it to the top */
-    left: 0; /* Align it to the left */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensure it stays above other content */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: rgb(228, 228, 243);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav img {
-    height: 80px; /* Adjust this value to make the logo bigger */
-    width: auto;
+  height: 60px;
+  width: auto;
+  margin-left: 70px; 
 }
 
 .navigation {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-items {
-    display: flex;
-    gap: 15px;
-    
+  display: flex;
+  gap: 15px;
 }
 
 .nav-items a {
-    color: navy;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    font-weight: 400;
+  color: navy;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 400;
 }
 
 .nav-items a:hover {
-    background-color: rgb(236, 236, 161); /* Change background on hover */
+  background-color: #b3b6b7;
+  border-radius: 20px;
+}
+
+/* Mobile View (Overlay) */
+@media screen and (max-width: 768px) {
+  .nav-items {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(228, 228, 243, 0.95); /* Overlay background with transparency */
+    width: 100%;
+    max-width: 300px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-items.active {
+    display: flex; /* Show the nav items when the menu is toggled */
+  }
+
+  .nav-items a {
+    padding: 15px;
+    border-bottom: 1px solid #b3b6b7;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: navy;
+  }
+}
+
+/* Small Screens (Under 480px) */
+@media screen and (max-width: 480px) {
+  nav img {
+    height: 50px;
+  }
+
+  .nav-items {
+    gap: 10px;
+  }
+}
+
+/* Show the full menu on laptop view */
+@media screen and (min-width: 769px) {
+  .menu-icon {
+    display: none; /* Hide the menu icon on laptop and larger screens */
+  }
+
+  .nav-items {
+    display: flex; /* Show the nav items by default on larger screens */
+    position: static;
+    width: auto;
+    background: none;
+    flex-direction: row; /* Horizontal alignment */
+  }
+
+  .nav-items a {
+    padding: 10px 15px;
+  }
 }
 
 
 #home {
-    background-image: linear-gradient(rgba(9,5,54,0.3),rgba(5,4,46,0.7)),url("January_life_style_working_96.jpg");
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
+    url("January_life_style_working_96.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
-#home h2{
-    color: white;
-    font-size: 2.2rem;
-    letter-spacing:1px ;
-    
+#home h2 {
+  color: white;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
-#home p{
-    width: 50%;
-    color: white;
-    font-size: 0.9rem;
-    line-height: 25px ;
+#home p {
+  width: 70%; /* Adjust width for smaller screens */
+  color: white;
+  font-size: 0.9rem;
+  line-height: 25px;
 }
-#home .button{
-    margin-top: 30px;
+#home .button {
+  margin-top: 30px;
 }
-#home a{
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding:13px 35px ;
-    background-color: white;
-    font-weight: 600;
-    border-radius: 5px;
+#home a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 13px 25px; /* Reduce padding for smaller screens */
+  background-color: white;
+  font-weight: 600;
+  border-radius: 5px;
 }
-#home a.game{
-    color: white;
-    background: blue;
+#home a.game {
+  color: white;
+  background: blue;
 }
-#home a.game:hover{
-    color: blue;
-    background: white;
+#home a.game:hover {
+  color: black;
+  background: white;
 }
-#home a.courses{
-    color: white;
-    background: rgb(218, 218, 7);
+#home a.courses {
+  color: black;
+  background-color: rgb(228, 228, 243);
 }
-#home a.courses:hover{
-    color: rgb(218, 218, 7);
-    background: white;
-}
-#about{
-    width: 100%;
-    padding: 78px 0px;
-    background-color:rgb(228, 228, 243);
-}
-#about img{
-width: 420px;
-height: auto;
-}
-.about-text{
-    width: 550px;
-   
+#home a.courses:hover {
+  color: white;
+  background: #b3b6b7;
 }
 
-.main{
-    width: 1130px;
-    max-width: 95%;
-    margin:0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+#about {
+  width: 100%;
+  padding: 50px 0px;
+  background-color: rgb(228, 228, 243);
 }
-.about-text h1{
-    color:navy;
-    font-size: 53px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
+#about img {
+  width: 100%;
+  max-width: 420px; /* Responsive max width */
+  height: auto;
 }
-.about-text h4{
-    color:navy;
-    font-size: 25px;
-    text-transform: capitalize;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
-    
+.about-text {
+  width: 100%;
+  max-width: 550px; /* Ensure responsiveness */
 }
-.about-text p{
-    color:navy;
-   
-    line-height: 28px;
-    font-size: 18px;
-    margin-bottom: 45px;
 
+.main {
+  width: 100%;
+  max-width: 1130px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.about-text h1 {
+  color: navy;
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.about-text h4 {
+  color: navy;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+.about-text p {
+  color: navy;
+  line-height: 28px;
+  font-size: 1rem;
+  margin-bottom: 45px;
 }
 .contact {
-    width: 100%;
-    padding: 40px 0; /* Reduced padding for shorter height */
-    background-color: rgb(56, 56, 122);
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center horizontally */
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgb(56, 56, 122);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact h3 {
-    color: white;
-    font-size: 50px;
-    text-transform: capitalize;
-    margin-bottom: 20px; /* Space below the heading */
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  color: white;
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
 }
 
 .home-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
-    gap: 20px; /* Space between cards */
-    justify-content: center; /* Center the profile cards */
-    padding: 20px; /* Space around the cards */
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next row if needed */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .profile-card {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 50%;
-    box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
-    transition: all .4s;
-    margin: 20px; /* Consistent spacing between cards */
+  flex: 1 1 220px; /* Flex-grow, flex-shrink, and min width 220px */
+  max-width: 250px;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
+  transition: all 0.4s;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .profile-card:hover {
-    border-radius: 10px;
-    height: 260px; /* Slight increase in height on hover */
+  border-radius: 10px;
 }
 
 .profile-card .img {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .profile-card:hover img {
-    border-radius: 10px;
-    transform: translateY(-70px);
+  border-radius: 10px;
+  transform: translateY(-70px);
 }
 
 .profile-card a {
-    color: #333;
-    text-align: center;
+  color: #333;
+  text-align: center;
 }
 
 .img img {
-    object-fit: cover; /* Cover instead of fill to avoid distortion */
-    width: 100%;
-    border-radius: 50%;
-    transition: all .4s;
-    z-index: 99;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  transition: all 0.4s;
+  z-index: 99;
 }
 
 .caption {
-    text-align: center;
-    transform: translateY(-90px);
-    opacity: 0; /* Initially hidden */
-    pointer-events: none;
-    transition: all .5s;
+  text-align: center;
+  transform: translateY(-90px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
 }
 
 .profile-card:hover .caption {
-    opacity: 1; /* Show caption on hover */
-    pointer-events: all; /* Enable interaction */
+  opacity: 1;
+  pointer-events: all;
 }
 
 .caption h3 {
-    font-size: 18px;
-    color: #0c52a1;
-    font-weight: 600;
-}
-.caption p {
-font-size: 12.6px;
-font-weight: 500;
-margin: -10px 0 12px; 
-color: black;
-}
-.caption .social-links {
-    margin-top: -10px; 
+  font-size: 1rem;
+  color: #0c52a1;
+  font-weight: 600;
 }
 
+.caption p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: -10px 0 12px;
+  color: black;
+}
+
+.caption .social-links {
+  margin-top: -10px;
+}
 
 .caption .social-links a {
- font-size: 14.7px;
-    margin: -10px 5px 0; 
-    cursor: pointer;
-    color: #333;
-    transition: all .4s
+  font-size: 0.8rem;
+  margin: -10px 5px 0;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.4s;
 }
 
-.caption .social-links i:hover {
-    color: #0c52a1;
+.caption .social-links a:hover {
+  color: #0c52a1;
+}
+
+/* Flexbox adjustments for responsiveness */
+@media screen and (max-width: 768px) {
+  .profile-card {
+    flex: 1 1 200px;
+  }
+
+  .caption {
+    transform: translateY(-80px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-card {
+    flex: 1 1 160px; /* Allow cards to shrink more on smaller screens */
+  }
+
+  .profile-card:hover img {
+    transform: translateY(-60px);
+  }
+
+  .caption h3 {
+    font-size: 0.9rem;
+  }
+
+  .caption p {
+    font-size: 0.75rem;
+  }
 }
 
 footer {
-    background-color: rgb(11, 11, 64);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: auto;
+  background-color: rgb(228, 228, 243);
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
 }
 
+/* Media Queries for Smaller Screens */
+@media screen and (max-width: 768px) {
+  nav img {
+    margin-left: 10px;
+    height: 50px;
+  }
+
+  .nav-items a {
+    padding: 8px 10px;
+  }
+
+  #home p {
+    width: 90%;
+  }
+
+  .main {
+    flex-direction: column; /* Stack elements on smaller screens */
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-text h4 {
+    font-size: 1.2rem;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav img {
+    height: 40px;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #home h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-card {
+    padding: 10px;
+  }
+
+  .profile-card:hover {
+    height: auto;
+  }
+}
